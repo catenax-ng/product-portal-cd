@@ -13,6 +13,8 @@ postgresql:
     certificatesSecret: portal-backend-postgresql-certs
     certFilename: tls.crt
     certKeyFilename: tls.key
+  volumePermissions:
+    enabled: true
   auth:
     username: portal
     database: postgres
