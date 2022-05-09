@@ -32,6 +32,6 @@ spec:
       volumes:
         {{- if .Values.database.connection.ssl.certMountEnabled }}
         - name: postgres-ca
-          configMap:
+          secret:
             name: {{ .Values.database.name }}-postgres-ca
         {{- end }}
