@@ -3,21 +3,22 @@ kind: Deployment
 metadata:
   name: {{ .Values.name }}
 spec:
-...
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.name }}
   templates:
-  ...
     metadata:
       labels:
         app: {{ .Values.name }}
     spec:
-    ...
       containers:
-      ...
+      - name: {{ .Values.name }}
+        image: {{ .Values.image }}
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: {{ .Values.portContainer }}
         env:
-        ...
           - name: APP_CONFIG_backend_database_connection_password
             valueFrom:
               secretKeyRef:
@@ -28,7 +29,6 @@ spec:
           - name: postgres-ca
             mountPath: {{ .Values.database.connection.ssl.caDir }}
           {{- end }}
-        ...
       volumes:
         {{- if .Values.database.connection.ssl.certMountEnabled }}
         - name: postgres-ca
