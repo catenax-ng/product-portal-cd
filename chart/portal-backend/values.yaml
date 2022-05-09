@@ -19,13 +19,19 @@ postgresql:
     username: portal
     database: postgres
     existingSecret: secret-postgres-init
-  secret:
-    name: "secret-postgres-init"
-    path: "portal/data/int/postgres"
   architecture: replication
   primary:
     initdb:
       scriptsConfigMap: p-init-sql
+
+database:
+  secret:
+    name: "secret-postgres-init"
+    path: "portal/data/int/postgres"
+  connection:
+    ssl:
+      certMountEnabled: true
+      caDir: "database/certs"
 
 registration:
   name: "registration-service"

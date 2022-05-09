@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+...
+spec:
+...
+  templates:
+  ...
+    spec:
+    ...
+      containers:
+      ...
+        env:
+        ...
+          - name: APP_CONFIG_backend_database_connection_password
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.postgresql.secret.name }}
+                key: postgresql-password
+        volumeMounts:
+          {{- if .Values.database.connection.ssl.certMountEnabled }}
+          - name: postgres-ca
+            mountPath: {{ .Values.database.connection.ssl.caDir }}
+          {{- end }}
+        ...
+      volumes:
+        {{- if .Values.database.connection.ssl.certMountEnabled }}
+        - name: postgres-ca
+          configMap:
+            name: {{ .Values.name }}-postgres-ca
+        {{- end }}
