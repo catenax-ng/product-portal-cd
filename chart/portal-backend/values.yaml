@@ -8,6 +8,11 @@ replicaCount: 1
 
 postgresql:
   enabled: true
+  tls:
+    enabled: true
+    certificatesSecret: portal-backend-postgresql-certs
+    certFilename: tls.crt
+    certKeyFilename: tls.key
   auth:
     username: portal
     database: postgres
