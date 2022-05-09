@@ -9,6 +9,9 @@ spec:
       app: {{ .Values.name }}
   templates:
   ...
+    metadata:
+      labels:
+        app: {{ .Values.name }}
     spec:
     ...
       containers:
