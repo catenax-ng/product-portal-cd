@@ -33,5 +33,5 @@ spec:
         {{- if .Values.database.connection.ssl.certMountEnabled }}
         - name: postgres-ca
           secret:
-            name: {{ .Values.database.name }}-postgres-ca
+            secretName: {{ .Values.database.name }}-postgres-ca
         {{- end }}
