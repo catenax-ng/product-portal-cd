@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.name }}
+  name: {{ .Values.database.name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.name }}
-  templates:
+      app: {{ .Values.database.name }}
+  template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: {{ .Values.database.name }}
     spec:
       containers:
-      - name: {{ .Values.name }}
-        image: {{ .Values.image }}
+      - name: {{ .Values.database.name }}
+        image: {{ .Values.database.name }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
@@ -33,5 +33,5 @@ spec:
         {{- if .Values.database.connection.ssl.certMountEnabled }}
         - name: postgres-ca
           configMap:
-            name: {{ .Values.name }}-postgres-ca
+            name: {{ .Values.database.name }}-postgres-ca
         {{- end }}

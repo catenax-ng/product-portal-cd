@@ -25,6 +25,7 @@ postgresql:
       scriptsConfigMap: p-init-sql
 
 database:
+  name: portal-backend-postgresql
   secret:
     name: "secret-postgres-init"
     path: "portal/data/int/postgres"
