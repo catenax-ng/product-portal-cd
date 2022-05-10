@@ -1,24 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
-...
 metadata:
   name: {{ .Values.database.name }}
+...
 spec:
 ...
-  replicas: {{ .Values.replicaCount }}
-  selector:
-    matchLabels:
-      app: {{ .Values.database.name }}
-  template:
+  templates:
   ...
-    metadata:
-      labels:
-        app: {{ .Values.database.name }}
+    # replicas: {{ .Values.replicaCount }}
+    # selector:
+    #   matchLabels:
+    #     app: {{ .Values.database.name }}
     spec:
     ...
       containers:
       ...
-      - name: {{ .Values.database.name }}
+      # - name: {{ .Values.database.name }}
       #   image: {{ .Values.database.name }}
       #   imagePullPolicy: "Always"
       #   ports:
