@@ -1,24 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
+...
 metadata:
   name: {{ .Values.database.name }}
 spec:
+...
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.database.name }}
   template:
+  ...
     metadata:
       labels:
         app: {{ .Values.database.name }}
     spec:
+    ...
       containers:
-      - name: {{ .Values.database.name }}
-        image: {{ .Values.database.name }}
-        imagePullPolicy: "Always"
-        ports:
-        - containerPort: {{ .Values.portContainer }}
+      ...
+      # - name: {{ .Values.database.name }}
+      #   image: {{ .Values.database.name }}
+      #   imagePullPolicy: "Always"
+      #   ports:
+      #   - containerPort: {{ .Values.portContainer }}
         env:
+        ...
           - name: APP_CONFIG_backend_database_connection_password
             valueFrom:
               secretKeyRef:
@@ -29,6 +35,7 @@ spec:
           - name: postgres-ca
             mountPath: {{ .Values.database.connection.ssl.caDir }}
           {{- end }}
+          ...
       volumes:
         {{- if .Values.database.connection.ssl.certMountEnabled }}
         - name: postgres-ca
