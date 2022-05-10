@@ -18,7 +18,7 @@ spec:
     ...
       containers:
       ...
-      # - name: {{ .Values.database.name }}
+      - name: {{ .Values.database.name }}
       #   image: {{ .Values.database.name }}
       #   imagePullPolicy: "Always"
       #   ports:
