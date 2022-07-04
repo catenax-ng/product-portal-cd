@@ -34,6 +34,14 @@ spec:
             port:
               number: {{ .Values.portService }}
 
+      - path: /api/notification
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.notification.name }}
+            port:
+              number: {{ .Values.portService }}
+
       - path: /api/provisioning
         pathType: Prefix
         backend:
