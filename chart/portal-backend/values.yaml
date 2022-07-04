@@ -90,6 +90,13 @@ portalmaintenance:
     name: secret-portal-maintenance
     path: portal/data/int/portal-maintenance
 
+notification:
+  name: notification-service
+  image: ghcr.io/catenax-ng/product-portal-backend_notification-service:latest
+  secret:
+    name: secret-notification
+    path: portal/data/int/notification
+
 pgadmin4:
   enabled: true
   secret:

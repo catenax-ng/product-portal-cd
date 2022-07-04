@@ -37,6 +37,11 @@ portalmaintenance:
   secret:
     path: portal/data/pen/portal-maintenance
 
+notification:
+  image: ghcr.io/catenax-ng/product-portal-backend_notification-service:latest
+  secret:
+    path: portal/data/pen/notification
+
 pgadmin4:
   enabled: true
   secret:
