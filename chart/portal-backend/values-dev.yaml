@@ -12,7 +12,9 @@ registration:
     path: portal/data/dev/registration
 
 administration:
-  image: ghcr.io/catenax-ng/product-portal-backend_administration-service:latest
+  image:
+    repository: ghcr.io/catenax-ng/product-portal-backend_administration-service
+    tag: latest
   secret:
     path: portal/data/dev/administration
 
