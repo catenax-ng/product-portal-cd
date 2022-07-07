@@ -14,7 +14,7 @@ registration:
 administration:
   image:
     repository: ghcr.io/catenax-ng/product-portal-backend_administration-service
-    tag: latest
+    tag: $ARGOCD_APP_REVISION
   secret:
     path: portal/data/dev/administration
 
