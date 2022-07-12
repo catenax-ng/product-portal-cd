@@ -1,0 +1,41 @@
+name: Administration-Service
+
+on:
+  push:
+    paths:
+      - '.github/workflows/administration-service-image-update.yml'
+    branches:
+      - 'main'
+      - 'feature/CPLP-1074_auto_image_update'
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}_administration-service
+  COMMIT_SHA: ${{ github.sha }}
+  IMAGE_BEGINN: 'administrationtag: '
+  IMAGE_FULL: 'administrationtag: ${{ github.sha }}'
+
+jobs:
+  update-image-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: feature/CPLP-1074_auto_image_update
+
+      - name: Modify image tag in values-dev.yaml
+        run: |
+          sed -i 's/${{ env.IMAGE_BEGINN }}.*/${{ env.IMAGE_FULL }}/' chart/portal-backend/values-dev.yaml
+
+      - name: Commit and push updated values-dev.yaml
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add chart/portal-backend/values-dev.yaml
+          git commit -m "Add new image for administration service"
+          git push
