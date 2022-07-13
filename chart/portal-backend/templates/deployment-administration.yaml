@@ -11,10 +11,12 @@ spec:
     metadata:
       labels:
         app: {{ .Values.administration.name }}
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
       - name: {{ .Values.administration.name }}
-        image: {{ .Values.administration.image.repository }}:{{ .Values.administration.image.administrationtag }}
+        image: {{ .Values.administration.image.repository }}:{{ .Values.administration.image.tag }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
