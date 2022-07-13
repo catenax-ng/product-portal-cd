@@ -11,7 +11,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.administration.name }}
-        date: {{ now | unixEpoch }}
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
       - name: {{ .Values.administration.name }}
