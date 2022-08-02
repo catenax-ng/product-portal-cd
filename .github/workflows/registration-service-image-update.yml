@@ -1,9 +1,6 @@
 name: Auto-image-update Registration-Service
 
 on:
-  push:
-    branches:
-      - 'feature/CPLP-1074_auto_image_update'
   workflow_dispatch:
     inputs:
       new-image:
