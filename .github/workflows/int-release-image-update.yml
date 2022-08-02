@@ -1,0 +1,58 @@
+name: Auto-image-update INT Release
+
+on:
+  push:
+    branches:
+     - feature/CPLP-1074_auto_image_update
+  workflow_dispatch:
+    inputs:
+      new-image:
+        description: 'new available image'
+        required: true
+        default: 'no content'
+
+env:
+  ADMINISTRATION_IMAGE_BEGINN: 'administrationtag: '
+  ADMINISTRATION_IMAGE_FULL_NEW: 'administrationtag: ${{ inputs.new-image }}'
+  PORTALMAINTENANCE_IMAGE_BEGINN: 'portalmaintenancetag: '
+  PORTALMAINTENANCE_IMAGE_FULL_NEW: 'portalmaintenancetag: ${{ inputs.new-image }}'
+  APPMARKETPLACE_IMAGE_BEGINN: 'appmarketplacetag: '
+  APPMARKETPLACE_IMAGE_FULL_NEW: 'appmarketplacetag: ${{ inputs.new-image }}'
+  NOTIFICATION_IMAGE_BEGINN: 'notificationtag: '
+  NOTIFICATION_IMAGE_FULL_NEW: 'notificationtag: ${{ inputs.new-image }}'
+  PORTALMIGRATIONS_IMAGE_BEGINN: 'portalmigrationstag: '
+  PORTALMIGRATIONS_IMAGE_FULL_NEW: 'portalmigrationstag: ${{ inputs.new-image }}'
+  PROVISIONING_IMAGE_BEGINN: 'provisioningtag: '
+  PROVISIONING_IMAGE_FULL_NEW: 'provisioningtag: ${{ inputs.new-image }}'
+  REGISTRATION_IMAGE_BEGINN: 'registrationtag: '
+  REGISTRATION_IMAGE_FULL_NEW: 'registrationtag: ${{ inputs.new-image }}'
+
+jobs:
+  update-image-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: feature/CPLP-1074_auto_image_update
+
+      - name: Modify image tag in values.yaml
+        run: |
+          sed -i 's/${{ env.ADMINISTRATION_IMAGE_BEGINN }}.*/${{ env.ADMINISTRATION_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
+          sed -i 's/${{ env.PORTALMAINTENANCE_IMAGE_BEGINN }}.*/${{ env.PORTALMAINTENANCE_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
+          sed -i 's/${{ env.APPMARKETPLACE_IMAGE_BEGINN }}.*/${{ env.APPMARKETPLACE_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
+          sed -i 's/${{ env.NOTIFICATION_IMAGE_BEGINN }}.*/${{ env.NOTIFICATION_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
+          sed -i 's/${{ env.PORTALMIGRATIONS_IMAGE_BEGINN }}.*/${{ env.PORTALMIGRATIONS_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
+          sed -i 's/${{ env.PROVISIONING_IMAGE_BEGINN }}.*/${{ env.PROVISIONING_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
+          sed -i 's/${{ env.REGISTRATION_IMAGE_BEGINN }}.*/${{ env.REGISTRATION_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
+
+      - name: Commit and push updated values-dev.yaml
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add chart/portal-backend/values.yaml
+          git commit -m "Add new images for int"
+          git push
