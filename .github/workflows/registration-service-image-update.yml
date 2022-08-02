@@ -6,6 +6,7 @@ on:
       new-image:
         description: 'new available image'
         required: true
+        default: 'no content'
 
 env:
   REGISTRY: ghcr.io
