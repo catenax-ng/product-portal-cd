@@ -13,6 +13,7 @@ env:
   COMMIT_SHA: ${{ github.sha }}
   IMAGE_BEGINN: 'administrationtag: '
   IMAGE_FULL: 'administrationtag: ${{ github.sha }}'
+  IMAGE_FULL_NEW: ${{ inputs.new-image }}
 
 jobs:
   update-image-tag:
