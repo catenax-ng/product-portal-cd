@@ -5,21 +5,24 @@ issuer: "letsencrypt-prod"
 portContainer: 8080
 portService: 8080
 replicaCount: 1
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
 
 portal:
   path: "/(.*)"
   name: "portal"
-  image: "ghcr.io/catenax-ng/product-portal-frontend:0.4.1"
+  image: "ghcr.io/catenax-ng/product-portal-frontend:main"
 
 assets:
   path: "/((assets|swagger)/.*)"
   name: "assets"
-  image: "ghcr.io/catenax-ng/product-portal-common-assets:0.4.1"
+  image: "ghcr.io/catenax-ng/product-portal-common-assets:main"
 
 registration:
   path: "/registration/(.*)"
   name: "registration"
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:0.4.1"
+  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
 
 demonstrator:
   path: "/demonstrator/(.*)"

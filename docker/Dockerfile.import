@@ -1,5 +1,11 @@
-FROM busybox
+FROM ubuntu:22.04
 
 RUN mkdir import
+
+RUN groupadd -r initdbgroup && useradd --no-log-init -r -g initdbgroup initdbuser
+
+RUN chown initdbuser:initdbgroup import
+
+USER initdbuser
 
 COPY import/ import

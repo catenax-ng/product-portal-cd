@@ -14,6 +14,8 @@ spec:
     spec:
       containers:
       - name: {{ .Values.demonstrator.name }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
         image: {{ .Values.demonstrator.image }}
         imagePullPolicy: "Always"
         ports:

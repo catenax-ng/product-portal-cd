@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.3 (Debian 14.3-1.pgdg110+1)
--- Dumped by pg_dump version 14.3 (Debian 14.3-1.pgdg110+1)
+-- Dumped from database version 14.4 (Debian 14.4-1.pgdg110+1)
+-- Dumped by pg_dump version 14.4 (Debian 14.4-1.pgdg110+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -84,6 +84,12 @@ COPY portal.company_roles (id, label) FROM stdin;
 COPY portal.languages (short_name, long_name_de, long_name_en) FROM stdin;
 de	deutsch	german
 en	englisch	english
+pt	portugisisch	portuguese
+es	spanisch	spanish
+fr	franzoesisch	french
+ru	russisch	russian
+jp	japanisch	japanese
+cn	chinesisch	chinese
 \.
 
 
@@ -417,6 +423,17 @@ ZM	ZMB	Zambia	Zambia
 
 
 --
+-- Data for Name: document_status; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+COPY portal.document_status (id, label) FROM stdin;
+1	PENDING
+2	LOCKED
+3	INACTIVE
+\.
+
+
+--
 -- Data for Name: document_types; Type: TABLE DATA; Schema: portal; Owner: portal
 --
 
@@ -450,6 +467,15 @@ COPY portal.invitation_statuses (id, label) FROM stdin;
 4	DECLINED
 \.
 
+
+--
+-- Data for Name: notification_type; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+COPY portal.notification_type (id, label) FROM stdin;
+1	INFO
+2	ACTION
+\.
 
 --
 -- Data for Name: use_cases; Type: TABLE DATA; Schema: portal; Owner: portal

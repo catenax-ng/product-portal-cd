@@ -50,51 +50,49 @@ postgresql:
 
 registration:
   name: registration-service
-  image: ghcr.io/catenax-ng/product-portal-backend_registration-service:latest
+  image: ghcr.io/catenax-ng/product-portal-backend_registration-service:0.4.5
   secret:
     name: secret-registration
     path: portal/data/int/registration
 
 administration:
   name: administration-service
-  image:
-    repository: ghcr.io/catenax-ng/product-portal-backend_administration-service
-    tag: latest
+  image: ghcr.io/catenax-ng/product-portal-backend_administration-service:0.4.5
   secret:
     name: secret-administration
     path: portal/data/int/administration
 
 provisioning:
   name: provisioning-service
-  image: ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest
+  image: ghcr.io/catenax-ng/product-portal-backend_provisioning-service:0.4.5
   secret:
     name: secret-provisioning
     path: portal/data/int/provisioning
 
 appmarketplace:
   name: marketplace-app-service
-  image: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest
+  image: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:0.4.5
   secret:
     name: secret-appmarketplace
     path: portal/data/int/appmarketplace
 
 portalmigrations:
   name: portal-migrations
-  image: ghcr.io/catenax-ng/product-portal-backend_portal-migrations:latest
+  image: ghcr.io/catenax-ng/product-portal-backend_portal-migrations:0.4.5
   secret:
     name: secret-portal-migrations
     path: portal/data/int/portal-migrations
 
 portalmaintenance:
   name: portal-maintenance
-  image: ghcr.io/catenax-ng/product-portal-backend_maintenance-service:latest
+  image: ghcr.io/catenax-ng/product-portal-backend_maintenance-service:0.4.5
   secret:
     name: secret-portal-maintenance
     path: portal/data/int/portal-maintenance
 
 notification:
   name: notification-service
-  image: ghcr.io/catenax-ng/product-portal-backend_notification-service:latest
+  image: ghcr.io/catenax-ng/product-portal-backend_notification-service:0.4.5
   secret:
     name: secret-notification
     path: portal/data/int/notification

@@ -4,10 +4,10 @@ portal:
   image: "ghcr.io/catenax-ng/product-portal-frontend:dev"
 
 assets:
-  image: "ghcr.io/catenax-ng/product-portal-common-assets:main"
+  image: "ghcr.io/catenax-ng/product-portal-common-assets:dev"
 
 registration:
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
+  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:dev"
 
 demonstrator:
   image: "ghcr.io/catenax-ng/product-demonstrator:latest"

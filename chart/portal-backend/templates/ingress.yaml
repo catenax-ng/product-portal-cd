@@ -8,6 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/cors-allow-origin: {{ .Values.corsOrigins }}
+    nginx.ingress.kubernetes.io/proxy-body-size: 8m
 spec:
   tls:
   - hosts:
