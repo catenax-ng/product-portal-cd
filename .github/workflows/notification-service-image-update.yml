@@ -1,0 +1,39 @@
+name: Auto-image-update Notification-Service
+
+on:
+  workflow_dispatch:
+    inputs:
+      new-image:
+        description: 'new available image'
+        required: true
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}_notification-service
+  COMMIT_SHA: ${{ github.sha }}
+  IMAGE_BEGINN: 'notificationtag: '
+  IMAGE_FULL_NEW: ${{ inputs.new-image }}
+
+jobs:
+  update-image-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          ref: feature/CPLP-1074_auto_image_update
+
+      - name: Modify image tag in values-dev.yaml
+        run: |
+          sed -i 's/${{ env.IMAGE_BEGINN }}.*/${{ env.IMAGE_FULL_NEW }}/' chart/portal-backend/values-dev.yaml
+
+      - name: Commit and push updated values-dev.yaml
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add chart/portal-backend/values-dev.yaml
+          git commit -m "Add new image for notification service"
+          git push
