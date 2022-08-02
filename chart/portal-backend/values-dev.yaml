@@ -38,7 +38,7 @@ portalmigrations:
 
 portalmaintenance:
   image:
-    
+    portalmaintenancetag: latest
   secret:
     path: portal/data/dev/portal-maintenance
 
