@@ -26,12 +26,6 @@ jobs:
         with:
           ref: feature/CPLP-1074_auto_image_update
 
-      - name: Set new image input as env variable
-        run: |
-          echo "New image: $IMAGE_FULL_NEW"
-        env:
-          IMAGE_FULL_NEW: ${{ inputs.new-image }}
-
       - name: Modify image tag in values-dev.yaml
         run: |
           sed -i 's/${{ env.IMAGE_BEGINN }}.*/${{ env.IMAGE_FULL_NEW }}/' chart/portal-backend/values-dev.yaml
