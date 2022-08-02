@@ -3,12 +3,9 @@ name: Administration-Service
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: 'Person to greet'
+      new-image:
+        description: 'new available image'
         required: true
-      home:
-        description: 'location'
-        required: false
 
 env:
   REGISTRY: ghcr.io
