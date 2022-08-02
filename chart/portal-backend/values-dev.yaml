@@ -8,7 +8,7 @@ postgresql:
 
 registration:
   image:
-    
+    registrationtag: latest
   secret:
     path: portal/data/dev/registration
 
@@ -20,19 +20,19 @@ administration:
 
 provisioning:
   image:
-    
+    provisioningtag: latest
   secret:
     path: portal/data/dev/provisioning
 
 appmarketplace:
   image:
-    
+    appmarketplacetag: latest
   secret:
     path: portal/data/dev/appmarketplace
 
 portalmigrations:
   image:
-    
+    portalmigrationstag: latest
   secret:
     path: portal/data/dev/portal-migrations
 
@@ -44,7 +44,7 @@ portalmaintenance:
 
 notification:
   image:
-    
+    notificationtag: latest
   secret:
     path: portal/data/dev/notification
 
