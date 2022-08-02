@@ -7,40 +7,44 @@ postgresql:
     pathinitdbuser: portal/data/dev/postgres-db-user
 
 registration:
-  image: ghcr.io/catenax-ng/product-portal-backend_registration-service:latest
+  image:
+    registrationtag: latest
   secret:
     path: portal/data/dev/registration
 
 administration:
   image:
-    repository: ghcr.io/catenax-ng/product-portal-backend_administration-service
     administrationtag: 3e2f9c1e86b06ec98063dd9f68af06f6789e466e
-    tag: latest
   secret:
     path: portal/data/dev/administration
 
 provisioning:
-  image: ghcr.io/catenax-ng/product-portal-backend_provisioning-service:latest
+  image:
+    provisioningtag: latest
   secret:
     path: portal/data/dev/provisioning
 
 appmarketplace:
-  image: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service:latest
+  image:
+    appmarketplacetag: latest
   secret:
     path: portal/data/dev/appmarketplace
 
 portalmigrations:
-  image: ghcr.io/catenax-ng/product-portal-backend_portal-migrations:latest
+  image:
+    portalmigrationstag: latest
   secret:
     path: portal/data/dev/portal-migrations
 
 portalmaintenance:
-  image: ghcr.io/catenax-ng/product-portal-backend_maintenance-service:latest
+  image:
+    portalmaintenancetag: latest
   secret:
     path: portal/data/dev/portal-maintenance
 
 notification:
-  image: ghcr.io/catenax-ng/product-portal-backend_notification-service:latest
+  image:
+    notificationtag: latest
   secret:
     path: portal/data/dev/notification
 
