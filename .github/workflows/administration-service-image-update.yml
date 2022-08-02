@@ -2,11 +2,6 @@ name: Administration-Service
 
 on:
   workflow_dispatch:
-    inputs:
-      image:
-        type: choice
-        description: 'new image'
-        required: false
 
 env:
   REGISTRY: ghcr.io
