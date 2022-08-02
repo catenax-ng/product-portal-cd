@@ -1,4 +1,4 @@
-name: Administration-Service
+name: Auto-image-update Administration-Service
 
 on:
   workflow_dispatch:
@@ -12,7 +12,6 @@ env:
   IMAGE_NAME: ${{ github.repository }}_administration-service
   COMMIT_SHA: ${{ github.sha }}
   IMAGE_BEGINN: 'administrationtag: '
-  IMAGE_FULL: 'administrationtag: ${{ github.sha }}'
   IMAGE_FULL_NEW: ${{ inputs.new-image }}
 
 jobs:
