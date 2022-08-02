@@ -9,9 +9,6 @@ on:
         default: 'no content'
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}_notification-service
-  COMMIT_SHA: ${{ github.sha }}
   IMAGE_BEGINN: 'notificationtag: '
   IMAGE_FULL_NEW: ${{ inputs.new-image }}
 

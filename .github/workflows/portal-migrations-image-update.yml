@@ -9,9 +9,6 @@ on:
         default: 'no content'
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}_portal-migrations
-  COMMIT_SHA: ${{ github.sha }}
   IMAGE_BEGINN: 'portalmigrationstag: '
   IMAGE_FULL_NEW: ${{ inputs.new-image }}
 
