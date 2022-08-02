@@ -44,7 +44,7 @@ portalmaintenance:
 
 notification:
   image:
-    notificationtag: latest
+    
   secret:
     path: portal/data/dev/notification
 
