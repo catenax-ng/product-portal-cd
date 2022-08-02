@@ -33,8 +33,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref: feature/CPLP-1074_auto_image_update
 
       - name: Modify image tag in values.yaml
         run: |

@@ -9,9 +9,6 @@ on:
         default: 'no content'
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}_marketplace-app-service
-  COMMIT_SHA: ${{ github.sha }}
   IMAGE_BEGINN: 'appmarketplacetag: '
   IMAGE_FULL_NEW: ${{ inputs.new-image }}
 
@@ -24,8 +21,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          ref: feature/CPLP-1074_auto_image_update
 
       - name: Modify image tag in values-dev.yaml
         run: |
