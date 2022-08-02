@@ -20,7 +20,7 @@ administration:
 
 provisioning:
   image:
-    provisioningtag: latest
+    provisioningtag: d7d147804bd8e1dd98f34201d719b3927c688a55
   secret:
     path: portal/data/dev/provisioning
 
