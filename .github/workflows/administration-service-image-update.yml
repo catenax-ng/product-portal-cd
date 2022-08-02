@@ -2,6 +2,9 @@ name: Administration-Service
 
 on:
   workflow_dispatch:
+    inputs:
+      updated-image: 'test'
+
 
 env:
   REGISTRY: ghcr.io
@@ -24,7 +27,7 @@ jobs:
 
       - name: Modify image tag in values-dev.yaml
         run: |
-          sed -i 's/${{ env.IMAGE_BEGINN }}.*/${{ INPUT.UPDATED-IMAGE }}/' chart/portal-backend/values-dev.yaml
+          sed -i 's/${{ env.IMAGE_BEGINN }}.*/${{ inputs.updated-image }}/' chart/portal-backend/values-dev.yaml
 
       - name: Commit and push updated values-dev.yaml
         run: |
