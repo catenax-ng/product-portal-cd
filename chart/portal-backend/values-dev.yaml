@@ -14,7 +14,7 @@ registration:
 administration:
   image:
     repository: ghcr.io/catenax-ng/product-portal-backend_administration-service
-    administrationtag: c84a6c953d847d41d48c8415c210ca5299d6c753
+    administrationtag: 3e2f9c1e86b06ec98063dd9f68af06f6789e466e
     tag: latest
   secret:
     path: portal/data/dev/administration
