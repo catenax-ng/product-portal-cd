@@ -44,7 +44,7 @@ jobs:
           sed -i 's/${{ env.PROVISIONING_IMAGE_BEGINN }}.*/${{ env.PROVISIONING_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
           sed -i 's/${{ env.REGISTRATION_IMAGE_BEGINN }}.*/${{ env.REGISTRATION_IMAGE_FULL_NEW }}/' chart/portal-backend/values.yaml
 
-      - name: Commit and push updated values-dev.yaml
+      - name: Commit and push updated values.yaml
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
