@@ -12,7 +12,9 @@ securityContext:
 portal:
   path: "/(.*)"
   name: "portal"
-  image: "ghcr.io/catenax-ng/product-portal-frontend:main"
+  image:
+    name: "ghcr.io/catenax-ng/product-portal-frontend"
+    portaltag: main
 
 assets:
   path: "/((assets|swagger)/.*)"
