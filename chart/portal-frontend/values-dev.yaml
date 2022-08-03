@@ -8,7 +8,8 @@ assets:
   image: "ghcr.io/catenax-ng/product-portal-common-assets:dev"
 
 registration:
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:dev"
+  image:
+    registrationtag: dev
 
 demonstrator:
   image: "ghcr.io/catenax-ng/product-demonstrator:latest"

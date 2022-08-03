@@ -24,7 +24,9 @@ assets:
 registration:
   path: "/registration/(.*)"
   name: "registration"
-  image: "ghcr.io/catenax-ng/product-portal-frontend-registration:main"
+  image: 
+    name: "ghcr.io/catenax-ng/product-portal-frontend-registration"
+    registrationtag: main
 
 demonstrator:
   path: "/demonstrator/(.*)"
