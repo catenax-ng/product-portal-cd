@@ -1,8 +1,6 @@
 name: Auto-image-update Portal INT Release
 
 on:
-  push:
-    branches: [ feature/CPLP-1074_auto_image_update-frontend ]
   workflow_dispatch:
     inputs:
       new-image:
