@@ -10,7 +10,7 @@ on:
 
 env:
   IMAGE_BEGINN: 'notificationtag: '
-  IMAGE_FULL_NEW: ${{ inputs.new-image }}
+  IMAGE_FULL_NEW: 'notificationtag: ${{ inputs.new-image }}'
 
 jobs:
   update-image-tag:

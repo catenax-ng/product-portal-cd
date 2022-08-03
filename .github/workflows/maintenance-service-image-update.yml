@@ -10,7 +10,7 @@ on:
 
 env:
   IMAGE_BEGINN: 'portalmaintenancetag: '
-  IMAGE_FULL_NEW: ${{ inputs.new-image }}
+  IMAGE_FULL_NEW: 'portalmaintenancetag: ${{ inputs.new-image }}'
 
 jobs:
   update-image-tag:

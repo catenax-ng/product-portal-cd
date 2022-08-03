@@ -10,7 +10,7 @@ on:
 
 env:
   IMAGE_BEGINN: 'administrationtag: '
-  IMAGE_FULL_NEW: ${{ inputs.new-image }}
+  IMAGE_FULL_NEW: 'administrationtag: ${{ inputs.new-image }}'
 
 jobs:
   update-image-tag:
