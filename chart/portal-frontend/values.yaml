@@ -14,7 +14,7 @@ portal:
   name: "portal"
   image:
     name: "ghcr.io/catenax-ng/product-portal-frontend"
-    portaltag: 
+    portaltag: main
 
 assets:
   path: "/((assets|swagger)/.*)"
