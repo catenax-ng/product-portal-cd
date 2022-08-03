@@ -32,4 +32,16 @@ jobs:
           git config user.email github-actions@github.com
           git add chart/portal-backend/values-dev.yaml
           git commit -m "Add new image for registration service"
-          git push
+          success=0;
+          attempts=0;
+          until $success || [ $attempts = 10 ];
+          do
+              let ++attempts;
+              git pull --rebase;
+              git push;
+              success=$?;
+          done;
+          if ! $success;
+          then
+              echo "Gave up after $attempts attempts";
+          fi
