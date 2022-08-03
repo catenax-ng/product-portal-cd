@@ -50,4 +50,4 @@ jobs:
           git config user.email github-actions@github.com
           git add chart/portal-backend/values.yaml
           git commit -m "Add new images for int"
-          git push
+          bash ./scripts/push.sh

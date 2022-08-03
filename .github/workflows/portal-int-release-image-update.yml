@@ -32,4 +32,4 @@ jobs:
           git config user.email github-actions@github.com
           git add chart/portal-frontend/values.yaml
           git commit -m "Add new images for portal int"
-          git push
+          bash ./scripts/push.sh
