@@ -10,7 +10,7 @@ on:
 
 env:
   IMAGE_BEGINN: 'appmarketplacetag: '
-  IMAGE_FULL_NEW: 'appmarketplacetag: ${{ inputs.new-image }}''
+  IMAGE_FULL_NEW: 'appmarketplacetag: ${{ inputs.new-image }}'
 
 jobs:
   update-image-tag:
