@@ -16,7 +16,7 @@ spec:
       - name: {{ .Values.assets.name }}
         securityContext:
           {{- toYaml .Values.securityContext | nindent 12 }}
-        image: {{ .Values.assets.image }}
+        image: {{ .Values.assets.image.name }}:{{ .Values.assets.image.assetstag }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}

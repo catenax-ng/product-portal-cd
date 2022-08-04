@@ -6,7 +6,8 @@ portal:
     portaltag: main
 
 assets:
-  image: "ghcr.io/catenax-ng/product-portal-common-assets:main"
+  image:
+    assetstag: main
 
 registration:
   image:

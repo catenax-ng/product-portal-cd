@@ -19,7 +19,9 @@ portal:
 assets:
   path: "/((assets|swagger)/.*)"
   name: "assets"
-  image: "ghcr.io/catenax-ng/product-portal-common-assets:main"
+  image:
+    name: "ghcr.io/catenax-ng/product-portal-common-assets"
+    assetstag: main
 
 registration:
   path: "/registration/(.*)"
