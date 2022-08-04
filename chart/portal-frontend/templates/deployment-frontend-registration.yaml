@@ -16,7 +16,7 @@ spec:
       - name: {{ .Values.registration.name }}
         securityContext:
           {{- toYaml .Values.securityContext | nindent 12 }}
-        image: {{ .Values.registration.image }}
+        image: {{ .Values.registration.image.name }}:{{ .Values.registration.image.registrationtag }}
         imagePullPolicy: "Always"
         ports:
         - containerPort: {{ .Values.portContainer }}
