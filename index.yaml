@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   portal:
   - apiVersion: v2
+    appVersion: 0.5.2
+    created: "2022-09-01T11:34:19.624865013Z"
+    description: Helm chart for Catena-X Portal frontend
+    digest: 2b10eeddf27791a54dc4dbb922068010e7f05d807cd7a78c2d276d66e85e8abd
+    name: portal
+    type: application
+    urls:
+    - https://github.com/catenax-ng/product-portal-cd/releases/download/portal-0.5.2/portal-0.5.2.tgz
+    version: 0.5.2
+  - apiVersion: v2
     appVersion: 0.5.1
     created: "2022-08-11T16:27:48.330572586Z"
     description: Helm chart for Catena-X Portal frontend
@@ -12,6 +22,25 @@ entries:
     - https://github.com/catenax-ng/product-portal-cd/releases/download/portal-0.5.1/portal-0.5.1.tgz
     version: 0.5.1
   portal-backend:
+  - apiVersion: v2
+    appVersion: 0.5.2
+    created: "2022-09-01T11:34:19.984907127Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.x.x
+    - condition: pgadmin4.enabled
+      name: pgadmin4
+      repository: https://helm.runix.net
+      version: 1.x.x
+    description: Helm chart for Catena-X Portal backend
+    digest: 6f699862b2abcb1547118fc33258df1884ab344a66deba968d5c2ed0eaa59706
+    name: portal-backend
+    type: application
+    urls:
+    - https://github.com/catenax-ng/product-portal-cd/releases/download/portal-backend-0.5.2/portal-backend-0.5.2.tgz
+    version: 0.5.2
   - apiVersion: v2
     appVersion: 0.5.1
     created: "2022-08-11T16:27:48.514607737Z"
@@ -31,4 +60,4 @@ entries:
     urls:
     - https://github.com/catenax-ng/product-portal-cd/releases/download/portal-backend-0.5.1/portal-backend-0.5.1.tgz
     version: 0.5.1
-generated: "2022-08-11T16:27:48.514616637Z"
+generated: "2022-09-01T11:34:19.984921428Z"
