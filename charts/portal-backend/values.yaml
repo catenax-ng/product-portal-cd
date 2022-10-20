@@ -23,78 +23,78 @@ postgresql:
   audit:
     pgAuditLog: write, ddl
     logLinePrefix: "%m %u %d "
- 
+
 registration:
   name: registration-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_registration-service
-    tag: int-v0.6.0
+    registrationtag: int-v0.6.0
   secret:
     name: secret-registration
-    appsettings: "'{}'"
+    appsettings: ""
 
 administration:
   name: administration-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_administration-service
-    tag: int-v0.6.0
+    administrationtag: int-v0.6.0
   secret:
     name: secret-administration
-    appsettings: "'{}'"
+    appsettings: ""
 
 provisioning:
   name: provisioning-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_provisioning-service
-    tag: int-v0.6.0
+    provisioningtag: int-v0.6.0
   secret:
     name: secret-provisioning
-    appsettings: "'{}'"
+    appsettings: ""
 
 appmarketplace:
   name: marketplace-app-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_marketplace-app-service
-    tag: int-v0.6.0
+    appmarketplacetag: int-v0.6.0
   secret:
     name: secret-appmarketplace
-    appsettings: "'{}'"
+    appsettings: ""
 
 portalmigrations:
   name: portal-migrations
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_portal-migrations
-    tag: int-v0.6.0
+    portalmigrationstag: int-v0.6.0
   secret:
     name: secret-portal-migrations
-    appsettings: "'{}'"
+    appsettings: ""
 
 portalmaintenance:
   name: portal-maintenance
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_maintenance-service
-    tag: int-v0.6.0
+    portalmaintenancetag: int-v0.6.0
   secret:
     name: secret-portal-maintenance
-    appsettings: "'{}'"
+    appsettings: ""
 
 notification:
   name: notification-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_notification-service
-    tag: int-v0.6.0
+    notificationtag: int-v0.6.0
   secret:
     name: secret-notification
-    appsettings: "'{}'"
+    appsettings: ""
 
 services:
   name: services-service
-  image: 
+  image:
     name: ghcr.io/catenax-ng/product-portal-backend_services-service
-    tag: int-v0.6.0
+    servicestag: int-v0.6.0
   secret:
     name: secret-services
-    appsettings: "'{}'"
+    appsettings: ""
 
 pgadmin4:
   enabled: false
