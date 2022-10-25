@@ -88,7 +88,7 @@ registration:
 
 administration:
   image:
-    administrationtag: bbb783b208f721612788cd34133ef5ae65f5df25
+    administrationtag: b192df92ad7dd71489d8da4a9cc9caa4fc11b74a
   secret:
     appsettings: "<path:portal/data/dev/administration#appsettings.json>"
 
