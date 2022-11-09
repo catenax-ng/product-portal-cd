@@ -40,7 +40,7 @@ portal:
 
 assets:
   image:
-    assetstag: 0.6.0
+    assetstag: 0.7.0
 
 registration:
   image: 
