@@ -23,7 +23,7 @@ assets:
 
 registration:
   name: "registration"
-  image: 
+  image:
     name: "ghcr.io/catenax-ng/tx-portal-frontend-registration"
     registrationtag: 0.6.0
 
