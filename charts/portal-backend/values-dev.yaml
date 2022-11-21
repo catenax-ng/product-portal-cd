@@ -112,7 +112,7 @@ portalmigrations:
 
 portalmaintenance:
   image:
-    portalmaintenancetag: 8c2da8047d4d357b42a979cad163150cfd51cafb
+    portalmaintenancetag: 74e910a92603e2101e20fdf4d7e43cd43d25ee19
   secret:
     appsettings: "<path:portal/data/dev/portal-maintenance#appsettings.json>"
 
