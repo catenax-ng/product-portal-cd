@@ -3,7 +3,7 @@
 --
 
 -- Dumped from database version 14.5 (Debian 14.5-2.pgdg110+2)
--- Dumped by pg_dump version 14.4 (Debian 14.4-1.pgdg110+1)
+-- Dumped by pg_dump version 14.2 (Debian 14.2-1.pgdg110+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -86,6 +86,8 @@ aa0a0000-7fbc-1f2f-817f-bce0502c1015	1	2022-09-18 00:00:00+00	2022-09-18 00:00:0
 aa0a0000-7fbc-1f2f-817f-bce0502c1016	2	2022-09-18 00:00:00+00	2022-09-18 00:00:00+00	\N	Marketplace Terms & Conditions	ac861325-bc54-4583-bcdc-9e9f2a38ff84	1aacde78-35ec-4df3-ba1e-f988cddcbbd9
 aa0a0000-7fbc-1f2f-817f-bce0502c1017	4	2022-09-18 00:00:00+00	2022-09-18 00:00:00+00	\N	Terms & Conditions Service Provider	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1aacde78-35ec-4df3-ba1e-f988cddcbbd9
 aa0a0000-7fbc-1f2f-817f-bce0502c1018	4	2022-09-18 00:00:00+00	2022-09-18 00:00:00+00	\N	Data Sharing Approval - allow CX to submit company data (company name, requester) to process the subscription	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1aacde78-35ec-4df3-ba1e-f988cddcbbd9
+aa0a0000-7fbc-1f2f-817f-bce0502c1090	1	2022-01-01 00:00:00.388+00	2022-01-01 00:00:00.388+00	\N	I confirm that my company has successfully received a Catena-X onboarding certificate issued by an official Conformity Assessment Body (CAB). I awknowledge to upload the certificate. For more information please visit the association homepage (Link)	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1aacde78-35ec-4df3-ba1e-f988cddcbbd9
+aa0a0000-7fbc-1f2f-817f-bce0502c1091	2	2022-01-01 00:00:00.388+00	2022-01-01 00:00:00.388+00	\N	I confirm that my company has successfully received a Catena-X onboarding certificate issued by an official Conformity Assessment Body (CAB). I awknowledge to upload the certificate. For more information please visit the association homepage (Link)	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	1aacde78-35ec-4df3-ba1e-f988cddcbbd9
 \.
 
 
@@ -287,11 +289,13 @@ f032a045-d035-11ec-9d64-0242ac120002	not yet known-1
 f032a046-d035-11ec-9d64-0242ac120002	not yet known-2
 f032a047-d035-11ec-9d64-0242ac120002	not yet known-3
 f032a048-d035-11ec-9d64-0242ac120002	not yet known-4
+f032a049-d035-11ec-9d64-0242ac120002	technical_roles_management
 f032a050-d035-11ec-9d64-0242ac120002	not yet known-5
 f032a051-d035-11ec-9d64-0242ac120002	not yet known-6
 789e31ee-0fdb-4e42-a819-23e0cfb1179b	https://catenax-dt-rec.authentication.eu10.hana.ondemand.com
 cf207afb-d213-4c33-becc-0cabeef174a7	https://catenax-int-dismantler-s66pftcc.authentication.eu10.hana.ondemand.com
-f032a049-d035-11ec-9d64-0242ac120002	technical_roles_management
+f032a052-d035-11ec-9d64-0242ac120002	Cl16-CX-CRisk
+f032a053-d035-11ec-9d64-0242ac120002	Cl18-CX-Pal
 \.
 
 
@@ -318,6 +322,8 @@ e080bb4b-567b-477e-adcf-080efc457d38	9ef01c20-6d9d-41ef-b336-fa64e1e2e4c2	f032a0
 1ef3a9b0-e8ef-48cc-9b88-65bacd6f05fb	0ffcb416-1101-4ba6-8d4a-a9dfa31745a4	f032a049-d035-11ec-9d64-0242ac120002
 476b0600-965b-4f10-8eb5-e4568859a886	5cf74ef8-e0b7-4984-a872-474828beb5d8	f032a050-d035-11ec-9d64-0242ac120002
 476b0600-965b-4f10-8eb5-e4568859a887	5cf74ef8-e0b7-4984-a872-474828beb5d9	f032a051-d035-11ec-9d64-0242ac120002
+476b0600-965b-4f10-8eb5-e4568859a888	5cf74ef8-e0b7-4984-a872-474828beb510	f032a052-d035-11ec-9d64-0242ac120002
+476b0600-965b-4f10-8eb5-e4568859a889	ac1cf001-7fbc-1f2f-817f-bce0574c000f	f032a053-d035-11ec-9d64-0242ac120002
 \.
 
 
@@ -399,31 +405,44 @@ ALTER TABLE portal.offer_subscriptions ENABLE TRIGGER ALL;
 
 ALTER TABLE portal.app_subscription_details DISABLE TRIGGER ALL;
 
-COPY portal.app_subscription_details (id, offer_subscription_id, app_instance_id, app_subscription_url) FROM stdin;
-a9aa870a-450b-4a58-8381-0cfe7f9f43e7	56d878d9-9574-4673-b32a-ebf5753042f5	b161d570-f6ff-45b4-a077-243f72487af6	\N
-e9e97133-a311-419c-8421-fd70264de9cb	b1964680-474d-45dd-b1c4-91f39f9a4c48	\N	\N
-f550c647-f94f-4e58-bcb9-b3d338af9009	56faf2e0-88ec-4ee5-a736-6c52688250f8	2c252614-ae87-4efc-8af8-4d011e70544b	https://dismantler-cockpit.d13fe27.kyma.ondemand.com
-88b0661c-cc22-4a4a-9721-fc4f3cec21f8	0b2ca541-206d-48ad-bc02-fb61fbcb5552	ab25c218-9ab3-4f1a-b6f4-6394fbc33c5a	https://ec-qas.d13fe27.kyma.ondemand.com
-3c7f7825-b2c4-43b8-b91e-8ab6f8e28fac	1ab2e5e1-df8f-496b-aa12-c11067805992	\N	https://impact.bmw.cloud/workspace/carbon/ri.carbon.main.workspace.7d7f6c71-3981-4b78-b731-1b4c8f243c97/ri.workshop.main.module.c9beba25-4387-40dd-9e59-8c4e3b3df3ff
-aa97bc61-149f-4b85-babb-eb40f0424ef5	02d5575d-b110-43f0-b0dd-53dbc37147dc	d69075b4-9bce-489c-ba80-8f7f08c4a011	https://fraud-dashboard.int.demo.catena-x.net/
-cb0d1b6a-29fd-4583-a924-641dcf3b26a9	34a93025-18de-4c7a-8677-0fd9801248d1	\N	https://portal-staging.afqm-services.com/
-3cafae15-4f03-49c3-9786-b6ca2e29fa76	028265dd-82a8-4924-ab9a-a7b47dc2adfd	\N	\N
-9c5cb134-b77b-4b22-ae34-63b686b3b5b9	93eecd4e-ca47-4dd2-85bf-775ea72eb312	\N	https://dtc-translator.adac.openresearch.com
-f21f3782-b2e4-462e-b0c0-986f49359536	846ec83b-4b84-4c29-b7ce-3e57d7405844	7e828901-27cb-4078-bd15-00efd247c56a	https://fleet-management.adac.openresearch.com
-bedb45bf-7094-4da0-9e69-0695db782a16	ed4de48d-fd4b-4384-a72f-ecae3c6cc5ba	b161d570-f6ff-45b4-a077-243f72487af6	\N
-d3796e27-d0bb-4376-80c3-2ffb49847424	85064593-0aaa-48c4-95a2-2700223aca5e	\N	\N
-22835697-99ea-45c8-bce6-9b2553a95c50	60f00bd0-98fe-4ed3-ad3b-90045921660c	2c252614-ae87-4efc-8af8-4d011e70544b	https://dismantler-cockpit.d13fe27.kyma.ondemand.com
-f9262016-7400-49a5-9908-c46257b4790f	d65e367c-0968-4be9-bd2a-6c3d6339d65c	ab25c218-9ab3-4f1a-b6f4-6394fbc33c5a	https://ec-qas.d13fe27.kyma.ondemand.com
-ac6413b0-b179-462a-9074-e7d0bcc5ee5a	1d28a224-6293-4148-8b60-6714a0f1465d	\N	https://impact.bmw.cloud/workspace/carbon/ri.carbon.main.workspace.7d7f6c71-3981-4b78-b731-1b4c8f243c97/ri.workshop.main.module.c9beba25-4387-40dd-9e59-8c4e3b3df3ff
-9741fa8d-74f3-44f8-8ec0-51c83399e508	6da4b991-b594-4b80-933a-26383d6d465f	d69075b4-9bce-489c-ba80-8f7f08c4a011	https://fraud-dashboard.int.demo.catena-x.net/
-ed4116b0-f4bc-451e-aaa9-5df08969e1b4	4ba33360-72e6-4a56-a253-59761d694d2c	\N	https://portal-staging.afqm-services.com/
-7f9888cb-2f78-4f71-b7dd-a9231888aa55	4d44eb62-7ac8-4a4a-a0d0-fc3daca5edd5	\N	\N
-3d8cb906-76a3-4cd7-ae99-4f9225437a27	11fd3bb9-6922-4b36-bc28-d30aded20231	\N	https://dtc-translator.adac.openresearch.com
-37241577-3730-4d39-ab5b-3555a0d11c42	1ab6c7c9-ff68-47da-aad4-b88d83b757cd	7e828901-27cb-4078-bd15-00efd247c56a	https://fleet-management.adac.openresearch.com
+COPY portal.app_subscription_details (id, offer_subscription_id, app_instance_id, app_subscription_url, last_editor_id) FROM stdin;
+a9aa870a-450b-4a58-8381-0cfe7f9f43e7	56d878d9-9574-4673-b32a-ebf5753042f5	b161d570-f6ff-45b4-a077-243f72487af6	\N	\N
+e9e97133-a311-419c-8421-fd70264de9cb	b1964680-474d-45dd-b1c4-91f39f9a4c48	\N	\N	\N
+f550c647-f94f-4e58-bcb9-b3d338af9009	56faf2e0-88ec-4ee5-a736-6c52688250f8	2c252614-ae87-4efc-8af8-4d011e70544b	https://dismantler-cockpit.d13fe27.kyma.ondemand.com	\N
+88b0661c-cc22-4a4a-9721-fc4f3cec21f8	0b2ca541-206d-48ad-bc02-fb61fbcb5552	ab25c218-9ab3-4f1a-b6f4-6394fbc33c5a	https://ec-qas.d13fe27.kyma.ondemand.com	\N
+3c7f7825-b2c4-43b8-b91e-8ab6f8e28fac	1ab2e5e1-df8f-496b-aa12-c11067805992	\N	https://impact.bmw.cloud/workspace/carbon/ri.carbon.main.workspace.7d7f6c71-3981-4b78-b731-1b4c8f243c97/ri.workshop.main.module.c9beba25-4387-40dd-9e59-8c4e3b3df3ff	\N
+aa97bc61-149f-4b85-babb-eb40f0424ef5	02d5575d-b110-43f0-b0dd-53dbc37147dc	d69075b4-9bce-489c-ba80-8f7f08c4a011	https://fraud-dashboard.int.demo.catena-x.net/	\N
+cb0d1b6a-29fd-4583-a924-641dcf3b26a9	34a93025-18de-4c7a-8677-0fd9801248d1	\N	https://portal-staging.afqm-services.com/	\N
+3cafae15-4f03-49c3-9786-b6ca2e29fa76	028265dd-82a8-4924-ab9a-a7b47dc2adfd	\N	\N	\N
+9c5cb134-b77b-4b22-ae34-63b686b3b5b9	93eecd4e-ca47-4dd2-85bf-775ea72eb312	\N	https://dtc-translator.adac.openresearch.com	\N
+f21f3782-b2e4-462e-b0c0-986f49359536	846ec83b-4b84-4c29-b7ce-3e57d7405844	7e828901-27cb-4078-bd15-00efd247c56a	https://fleet-management.adac.openresearch.com	\N
+bedb45bf-7094-4da0-9e69-0695db782a16	ed4de48d-fd4b-4384-a72f-ecae3c6cc5ba	b161d570-f6ff-45b4-a077-243f72487af6	\N	\N
+d3796e27-d0bb-4376-80c3-2ffb49847424	85064593-0aaa-48c4-95a2-2700223aca5e	\N	\N	\N
+22835697-99ea-45c8-bce6-9b2553a95c50	60f00bd0-98fe-4ed3-ad3b-90045921660c	2c252614-ae87-4efc-8af8-4d011e70544b	https://dismantler-cockpit.d13fe27.kyma.ondemand.com	\N
+f9262016-7400-49a5-9908-c46257b4790f	d65e367c-0968-4be9-bd2a-6c3d6339d65c	ab25c218-9ab3-4f1a-b6f4-6394fbc33c5a	https://ec-qas.d13fe27.kyma.ondemand.com	\N
+9741fa8d-74f3-44f8-8ec0-51c83399e508	6da4b991-b594-4b80-933a-26383d6d465f	d69075b4-9bce-489c-ba80-8f7f08c4a011	https://fraud-dashboard.int.demo.catena-x.net/	\N
+ed4116b0-f4bc-451e-aaa9-5df08969e1b4	4ba33360-72e6-4a56-a253-59761d694d2c	\N	https://portal-staging.afqm-services.com/	\N
+7f9888cb-2f78-4f71-b7dd-a9231888aa55	4d44eb62-7ac8-4a4a-a0d0-fc3daca5edd5	\N	\N	\N
+3d8cb906-76a3-4cd7-ae99-4f9225437a27	11fd3bb9-6922-4b36-bc28-d30aded20231	\N	https://dtc-translator.adac.openresearch.com	\N
+37241577-3730-4d39-ab5b-3555a0d11c42	1ab6c7c9-ff68-47da-aad4-b88d83b757cd	7e828901-27cb-4078-bd15-00efd247c56a	https://fleet-management.adac.openresearch.com	\N
+ac6413b0-b179-462a-9074-e7d0bcc5ee5a	1d28a224-6293-4148-8b60-6714a0f1465d	476b0600-965b-4f10-8eb5-e4568859a889	https://catena-x.palantirfoundry.com/	\N
+aaaa44ef-6602-4615-bf11-298656b30d6d	cc0c44ef-6602-4615-bf11-298656b30d6d	476b0600-965b-4f10-8eb5-e4568859a888	https://country-risk-dashboard.int.demo.catena-x.net/	\N
 \.
 
 
 ALTER TABLE portal.app_subscription_details ENABLE TRIGGER ALL;
+
+--
+-- Data for Name: audit_app_subscription_detail20221118; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+ALTER TABLE portal.audit_app_subscription_detail20221118 DISABLE TRIGGER ALL;
+
+COPY portal.audit_app_subscription_detail20221118 (audit_v1id, id, offer_subscription_id, app_instance_id, app_subscription_url, last_editor_id, audit_v1last_editor_id, audit_v1operation_id, audit_v1date_last_changed) FROM stdin;
+\.
+
+
+ALTER TABLE portal.audit_app_subscription_detail20221118 ENABLE TRIGGER ALL;
 
 --
 -- Data for Name: audit_company_application20221005; Type: TABLE DATA; Schema: portal; Owner: portal
@@ -591,13 +610,16 @@ ALTER TABLE portal.company_assigned_use_cases ENABLE TRIGGER ALL;
 ALTER TABLE portal.identity_providers DISABLE TRIGGER ALL;
 
 COPY portal.identity_providers (id, date_created, identity_provider_category_id) FROM stdin;
-ac1cf001-7fbc-1f2f-817f-bce0571b0004	2022-05-05 18:01:33.33+00	2
-ac1cf001-7fbc-1f2f-817f-bce057230006	2022-05-05 18:01:33.33+00	1
-ac1cf001-7fbc-1f2f-817f-bce057230007	2022-05-05 18:01:33.33+00	1
-ac1cf001-7fbc-1f2f-817f-bce057230008	2022-05-05 18:01:33.33+00	1
-ac1cf001-7fbc-1f2f-817f-bce0575a0012	2022-05-05 18:01:33.33+00	1
-ac1cf001-7fbc-1f2f-817f-bce057770015	2022-05-05 18:01:33.33+00	1
-ac1cf001-7fbc-1f2f-817f-bce057770016	2022-05-05 18:01:33.33+00	1
+ac1cf001-7fbc-1f2f-817f-bce0571b0004	2022-05-05 00:00:00.00+00	2
+ac1cf001-7fbc-1f2f-817f-bce057230006	2022-05-05 00:00:00.00+00	1
+ac1cf001-7fbc-1f2f-817f-bce057230007	2022-05-05 00:00:00.00+00	1
+ac1cf001-7fbc-1f2f-817f-bce057230008	2022-05-05 00:00:00.00+00	1
+ac1cf001-7fbc-1f2f-817f-bce0575a0012	2022-05-05 00:00:00.00+00	1
+ac1cf001-7fbc-1f2f-817f-bce057770015	2022-05-05 00:00:00.00+00	1
+ac1cf001-7fbc-1f2f-817f-bce057770016	2022-05-05 00:00:00.00+00	1
+ac1cf001-7fbc-1f2f-817f-bce057770017	2022-11-01 00:00:00.00+00	1
+ac1cf001-7fbc-1f2f-817f-bce057770018	2022-11-01 00:00:00.00+00	1
+e7317720-051d-4f4c-9140-ac23c6330351	2022-11-01 00:00:00.00+00	2
 \.
 
 
@@ -616,6 +638,8 @@ bdac6865-2a8d-4bfd-9373-9dfce8190895	ac1cf001-7fbc-1f2f-817f-bce057230007
 41fd2ab8-71cd-4546-9bef-a388d91b2542	ac1cf001-7fbc-1f2f-817f-bce057230008
 2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	ac1cf001-7fbc-1f2f-817f-bce057770015
 2dc4249f-b5ca-4d42-bef1-7a7a950a4f88	ac1cf001-7fbc-1f2f-817f-bce057770016
+3390c2d7-75c1-4169-aa27-6ce00e1f3cdd	ac1cf001-7fbc-1f2f-817f-bce057770017
+3390c2d7-75c1-4169-aa27-6ce00e1f3cde	ac1cf001-7fbc-1f2f-817f-bce057770018
 \.
 
 
@@ -773,6 +797,7 @@ b05d86e1-6c98-4619-85fa-9a425e080014	Data Contributor	5cf74ef8-e0b7-4984-a872-47
 607818be-4978-41f4-bf63-fa8d2de51173	Supplier Capacity Manager	a16e73b9-5277-4b69-9f8d-3b227495dfeb	\N
 607818be-4978-41f4-bf63-fa8d2de51174	User	a16e73b9-5277-4b69-9f8d-3b227495dfec	\N
 607818be-4978-41f4-bf63-fa8d2de51175	Admin	a16e73b9-5277-4b69-9f8d-3b227495dfec	\N
+607818be-4978-41f4-bf63-fa8d2de51176	Viewer	ac1cf001-7fbc-1f2f-817f-bce0574c000f	\N
 \.
 
 
@@ -819,13 +844,13 @@ ALTER TABLE portal.company_user_assigned_roles ENABLE TRIGGER ALL;
 
 ALTER TABLE portal.connectors DISABLE TRIGGER ALL;
 
-COPY portal.connectors (id, name, connector_url, type_id, status_id, provider_id, host_id, location_id, self_description_document_id) FROM stdin;
-7e86a0b8-6903-496b-96d1-0ef508206833	Test Connector 1	www.google.de	1	1	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N
-7e86a0b8-6903-496b-96d1-0ef508206834	Test Connector 2	www.google.de	1	2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N
-7e86a0b8-6903-496b-96d1-0ef508206835	Test Connector 3	www.google.de	1	2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N
-7e86a0b8-6903-496b-96d1-0ef508206836	Test Connector 4	www.google.de	1	2	ac861325-bc54-4583-bcdc-9e9f2a38ff84	ac861325-bc54-4583-bcdc-9e9f2a38ff84	DE	\N
-7e86a0b8-6903-496b-96d1-0ef508206837	Test Connector 5	www.google.de	1	1	ac861325-bc54-4583-bcdc-9e9f2a38ff84	ac861325-bc54-4583-bcdc-9e9f2a38ff84	DE	\N
-7e86a0b8-6903-496b-96d1-0ef508206838	Test Connector 6	www.google.de	1	1	cac8fa6a-9db7-4bad-9cbd-56298b74bac2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N
+COPY portal.connectors (id, name, connector_url, type_id, status_id, provider_id, host_id, location_id, self_description_document_id, daps_registration_successful) FROM stdin;
+7e86a0b8-6903-496b-96d1-0ef508206833	Test Connector 1	www.google.de	1	1	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N	\N
+7e86a0b8-6903-496b-96d1-0ef508206834	Test Connector 2	www.google.de	1	2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N	\N
+7e86a0b8-6903-496b-96d1-0ef508206835	Test Connector 3	www.google.de	1	2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N	\N
+7e86a0b8-6903-496b-96d1-0ef508206836	Test Connector 4	www.google.de	1	2	ac861325-bc54-4583-bcdc-9e9f2a38ff84	ac861325-bc54-4583-bcdc-9e9f2a38ff84	DE	\N	\N
+7e86a0b8-6903-496b-96d1-0ef508206837	Test Connector 5	www.google.de	1	1	ac861325-bc54-4583-bcdc-9e9f2a38ff84	ac861325-bc54-4583-bcdc-9e9f2a38ff84	DE	\N	\N
+7e86a0b8-6903-496b-96d1-0ef508206838	Test Connector 6	www.google.de	1	1	cac8fa6a-9db7-4bad-9cbd-56298b74bac2	2dc4249f-b5ca-4d42-bef1-7a7a950a4f87	DE	\N	\N
 \.
 
 
@@ -874,7 +899,10 @@ Company-1	ac1cf001-7fbc-1f2f-817f-bce057230006
 Company-2	ac1cf001-7fbc-1f2f-817f-bce057230007
 Security-Company	ac1cf001-7fbc-1f2f-817f-bce057230008
 CX-Test-Access	ac1cf001-7fbc-1f2f-817f-bce057770016
+Service-Provider	ac1cf001-7fbc-1f2f-817f-bce057770017
+App-Provider	ac1cf001-7fbc-1f2f-817f-bce057770018
 CX-Operator	ac1cf001-7fbc-1f2f-817f-bce057770015
+keycloak-oidc	e7317720-051d-4f4c-9140-ac23c6330351
 \.
 
 
@@ -991,6 +1019,15 @@ ac1cf001-7fbc-1f2f-817f-bce0574f0010	free of charge
 37eee74c-95fb-40ee-ae9c-95953a80bd68	free of charge
 37eee74c-95fb-40ee-ae9c-95953a80bd69	free of charge
 37eee74c-95fb-40ee-ae9c-95953a80bd70	free of charge
+37eee74c-95fb-40ee-ae9c-95953a80bd71	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd72	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd73	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd74	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd75	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd76	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd77	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd78	price unknown
+37eee74c-95fb-40ee-ae9c-95953a80bd79	price unknown
 \.
 
 
@@ -1013,6 +1050,15 @@ f9cad59d-84b3-4880-a550-4072c26a6b93	0f956bce-7ec3-4171-b6d2-ba7fc57c37d5
 5cf74ef8-e0b7-4984-a872-474828beb5d1	37eee74c-95fb-40ee-ae9c-95953a80bd68
 5cf74ef8-e0b7-4984-a872-474828beb5d2	37eee74c-95fb-40ee-ae9c-95953a80bd69
 5cf74ef8-e0b7-4984-a872-474828beb5d3	37eee74c-95fb-40ee-ae9c-95953a80bd70
+5cf74ef8-e0b7-4984-a872-474828beb5d4	37eee74c-95fb-40ee-ae9c-95953a80bd71
+5cf74ef8-e0b7-4984-a872-474828beb5d5	37eee74c-95fb-40ee-ae9c-95953a80bd72
+5cf74ef8-e0b7-4984-a872-474828beb5d6	37eee74c-95fb-40ee-ae9c-95953a80bd73
+5cf74ef8-e0b7-4984-a872-474828beb5d7	37eee74c-95fb-40ee-ae9c-95953a80bd74
+5cf74ef8-e0b7-4984-a872-474828beb5d8	37eee74c-95fb-40ee-ae9c-95953a80bd75
+5cf74ef8-e0b7-4984-a872-474828beb5d9	37eee74c-95fb-40ee-ae9c-95953a80bd76
+5cf74ef8-e0b7-4984-a872-474828beb510	37eee74c-95fb-40ee-ae9c-95953a80bd77
+a16e73b9-5277-4b69-9f8d-3b227495dfeb	37eee74c-95fb-40ee-ae9c-95953a80bd78
+a16e73b9-5277-4b69-9f8d-3b227495dfec	37eee74c-95fb-40ee-ae9c-95953a80bd79
 \.
 
 
@@ -1048,6 +1094,9 @@ ac1cf001-7fbc-1f2f-817f-bce0573f0009	de	This is only a test text	This is only a 
 5cf74ef8-e0b7-4984-a872-474828beb5d5	en	The Smart Factory Web Portal is a web-based application to allow suppliers and MaaS platforms to offer production capabilities and capacities. At the same time, the Smart Factory Web Portal offers a search environment where a buyer can upload engineering files and configure procurement requirements which the Smart Factory Web Search Engine the portal exploits uses to calculate all possible supply chain alternatives by matching it to the registered supplier information. This matching is able to use up-to-date information about the capabilities and status of assets in the factory, as well as characteristics of the products - availability, quality, price, carbon emissions and so on - which provides a basis for possible negotiation between competing offers.	This is only a test text
 5cf74ef8-e0b7-4984-a872-474828beb5d6	en	PRODUCTION PLANNING & CONTROL consists of the three coordinated applications PLANNING BOARD, PRODUCTION FEEDBACK and PRODUCTION COCKPIT. As a web-based solution from the cloud, it provides an easy entry into the optimization of production planning and control. PLANNING BOARD is intuitive tool for manual production planning with assistance functions. The software is suitable for easy replacement of EXCEL or paper and takes limited resources into account, such as workstations, machines and employees.PRODUCTION FEEDBACK provides real-time feedback from the shop floor, gives the machine operator an overview of all current production tasks and is directly connected to PLANNING BOARD. PRODUCTION COCKPIT is a simply structured dashboard that visualizes all manufacturing information. Depending on whether delivery reliability, order figures or the status of relevant. It can be configured individually.	This is only a test text
 5cf74ef8-e0b7-4984-a872-474828beb5d6	de	PRODUCTION PLANNING & CONTROL consists of the three coordinated applications PLANNING BOARD, PRODUCTION FEEDBACK and PRODUCTION COCKPIT. As a web-based solution from the cloud, it provides an easy entry into the optimization of production planning and control. PLANNING BOARD is intuitive tool for manual production planning with assistance functions. The software is suitable for easy replacement of EXCEL or paper and takes limited resources into account, such as workstations, machines and employees. PRODUCTION FEEDBACK provides real-time feedback from the shop floor, gives the machine operator an overview of all current production tasks and is directly connected to PLANNING BOARD. PRODUCTION COCKPIT is a simply structured dashboard that visualizes all manufacturing information. Depending on whether delivery reliability, order figures or the status of relevant. It can be configured individually.	This is only a test text
+a16e73b9-5277-4b69-9f8d-3b227495dfeb	de	SupplyOn Capacity Management supports suppliers to collect production capacity data in a simple and intuitive way and enables buyer and supplier users to compare it with demand data. This comparison is mainly done on a tactical and strategical level, in order to identify potential mismatches as early as possible.  The data is available in a consistent format and can be downloaded for further internal processing. In addition, the application supports an integrated collaboration between suppliers and buyers via commenting and built-in task management features.	Supports suppliers to collect production capacity data
+a16e73b9-5277-4b69-9f8d-3b227495dfec	en	Provided connectivity to Siemens Xcelerator Share product	Provided connectivity to Siemens Xcelerator Share product
+a16e73b9-5277-4b69-9f8d-3b227495dfec	de	This is only a test text	This is only a test text
 5cf74ef8-e0b7-4984-a872-474828beb5d7	de	Das „SAP Logistics Business Network, Material Traceability (LBN-MT)“ stellt eine Lösung zur unternehmensübergreifenden Lieferkettentransparenz und Material Rückverfolgbarkeit dar. Der netzwerkbasierte Lösungsansatz schafft eine Datengrundlage für Automobilhersteller und Zulieferer gleichermaßen, um Reaktionszeiten bei Anomalien zu verkürzen und Rückrufe entlang der Lieferkette präziser auszuführen. Die Analyse und Erfassung der gesamten Chargen- und Serialnummerngeneralogie ist mittels Fiori UI einfach, strukturiert und anwenderfreundlich. Ebenso lässt sich diese über einen Netzwerkgrafen graphisch darstellen. Durch die vorhandene Standardintegration mit S/4HANA und ECC ist eine nahtlose Datenbereitstellung aus dem Backendsystem im Netzwerk möglich. Andere Systeme können über entsprechende Schnittstellen integriert und Daten bereitgestellt werden. Mit LBN-MT können Kunden nach den Prinzipien der Dateninteroperabilität und Souveränität im Catena-X Netzwerk mit allen relevanten Geschäftspartnern agieren und neue Geschäftsfelder entlang der Wertschöpfungskette etablieren.	This is only a test text
 5cf74ef8-e0b7-4984-a872-474828beb5d8	de	Siemens’ AM Network is an online order-to-delivery collaboration platform for the industrial additive manufacturing community. We connect the AM ecosystem, simplify the collaboration process, and streamline the AM production process. Siemens’ AM Network digitalizes and consistently improves your processes and ultimately accelerates the value in using Additive Manufacturing.	Online order-to-delivery collaboration platform for the industrial additive manufacturing community.
 5cf74ef8-e0b7-4984-a872-474828beb5d9	de	mipart is an on-demand manufacturing platform for the digital procurement of components. B2B and B2C customers can simply upload their CAD model, configure it online and order their component. The centerpiece of the mipart MaaS solution is an AI-based algorithm that analyzes and calculates the CAD models uploaded to the configurator in real time and generates a quotation within seconds. The customer can then order his component directly. What takes several days in the traditional way via paper correspondence, e-mail data exchange, and 2D component drawings, happens on mipart in just a few seconds. The manufacturing companies connected to mipart can use this new digital business model without investment costs and generate orders. Customers benefit from transparent processes and very short order times. miparts portfolio includes turned and milled parts, sheet metal processing and 3D printing. Individual parts and prototypes are just as possible as small series.	On demand manufacturing platform.
@@ -1057,9 +1106,6 @@ ac1cf001-7fbc-1f2f-817f-bce0573f0009	de	This is only a test text	This is only a 
 a16e73b9-5277-4b69-9f8d-3b227495dfea	en	In order to allow Data Providers and Data Consumers to easily participate in relevant Use Cases, a service for low-effort data sharing was needed. The service would add a convenience layer around already established CX components, such as EDC and Digital Twin Registry, simplifying their use. It is a standalone service which can be self-hosted, it enables companies to provide their data in the Catena-X network via an EDC, Ddata is uploaded via CSV-files/Manual Entry/Json format, the DFT registers the data in the Digital Twin Registry and makes it accessible via an EDC, DFT also act as a Data Consumer, it is show the data offers from data provider.	Component for Digital Twins registration
 a16e73b9-5277-4b69-9f8d-3b227495dfea	de	In order to allow Data Providers and Data Consumers to easily participate in relevant Use Cases, a service for low-effort data sharing was needed. The service would add a convenience layer around already established CX components, such as EDC and Digital Twin Registry, simplifying their use. It is a standalone service which can be self-hosted, it enables companies to provide their data in the Catena-X network via an EDC, Ddata is uploaded via CSV-files/Manual Entry/Json format, the DFT registers the data in the Digital Twin Registry and makes it accessible via an EDC, DFT also act as a Data Consumer, it is show the data offers from data provider.	Component for Digital Twins registration
 a16e73b9-5277-4b69-9f8d-3b227495dfeb	en	SupplyOn Capacity Management supports suppliers to collect production capacity data in a simple and intuitive way and enables buyer and supplier users to compare it with demand data. This comparison is mainly done on a tactical and strategical level, in order to identify potential mismatches as early as possible.  The data is available in a consistent format and can be downloaded for further internal processing. In addition, the application supports an integrated collaboration between suppliers and buyers via commenting and built-in task management features.	Supports suppliers to collect production capacity data
-a16e73b9-5277-4b69-9f8d-3b227495dfeb	de	SupplyOn Capacity Management supports suppliers to collect production capacity data in a simple and intuitive way and enables buyer and supplier users to compare it with demand data. This comparison is mainly done on a tactical and strategical level, in order to identify potential mismatches as early as possible.  The data is available in a consistent format and can be downloaded for further internal processing. In addition, the application supports an integrated collaboration between suppliers and buyers via commenting and built-in task management features.	Supports suppliers to collect production capacity data
-a16e73b9-5277-4b69-9f8d-3b227495dfec	en	Provided connectivity to Siemens Xcelerator Share product	Provided connectivity to Siemens Xcelerator Share product
-a16e73b9-5277-4b69-9f8d-3b227495dfec	de	This is only a test text	This is only a test text
 \.
 
 
@@ -1168,17 +1214,29 @@ a16e73b9-5277-4b69-9f8d-3b227495dfec	Quality
 ALTER TABLE portal.offer_tags ENABLE TRIGGER ALL;
 
 --
--- Data for Name: service_provider_company_details; Type: TABLE DATA; Schema: portal; Owner: portal
+-- Data for Name: provider_company_details; Type: TABLE DATA; Schema: portal; Owner: portal
 --
 
-ALTER TABLE portal.service_provider_company_details DISABLE TRIGGER ALL;
+ALTER TABLE portal.provider_company_details DISABLE TRIGGER ALL;
 
-COPY portal.service_provider_company_details (id, date_created, auto_setup_url, company_id) FROM stdin;
+COPY portal.provider_company_details (id, date_created, auto_setup_url, company_id) FROM stdin;
 3c0a31d2-7743-402c-af02-f0cc3cc3ca6d	2022-10-10 11:50:54.709881+00	https://orchestrator.cx.dih-cloud.com	3390c2d7-75c1-4169-aa27-6ce00e1f3cdd
 \.
 
 
-ALTER TABLE portal.service_provider_company_details ENABLE TRIGGER ALL;
+ALTER TABLE portal.provider_company_details ENABLE TRIGGER ALL;
+
+--
+-- Data for Name: service_assigned_service_types; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+ALTER TABLE portal.service_assigned_service_types DISABLE TRIGGER ALL;
+
+COPY portal.service_assigned_service_types (service_id, service_type_id) FROM stdin;
+\.
+
+
+ALTER TABLE portal.service_assigned_service_types ENABLE TRIGGER ALL;
 
 --
 -- Data for Name: user_role_assigned_collections; Type: TABLE DATA; Schema: portal; Owner: portal
@@ -1196,7 +1254,7 @@ b05d86e1-6c98-4619-85fa-9a425e0800b6	8cb12ea2-aed4-4d75-b041-ba297df3d2f2
 607818be-4978-41f4-bf63-fa8d2de51180	ec428950-8b64-4646-b336-28af869b5d73
 95fe4014-4d1b-47af-a22e-72a12f9470dc	a5b8b1de-7759-4620-9c87-6b6d74fb4fbc
 95fe4014-4d1b-47af-a22e-72a12f9470dc	ec428950-8b64-4646-b336-28af869b5d73
-607818be-4978-41f4-bf63-fa8d2de51168	a5b8b1de-7759-4620-9c87-6b6d74fb4fbc
+916e4be9-0ff7-48fb-bb80-97d2e93fca14	a5b8b1de-7759-4620-9c87-6b6d74fb4fbc
 3ff68c40-6581-4e48-a03a-2a6c1c5aac89	ec428950-8b64-4646-b336-28af869b5d73
 95fe4014-4d1b-47af-a22e-72a12f9470db	ec428950-8b64-4646-b336-28af869b5d73
 04231a30-df50-4d14-bb00-71ff012ae0cf	8cb12ea2-aed4-4d75-b041-ba297df3d2f2
@@ -1306,6 +1364,8 @@ b05d86e1-6c98-4619-85fa-9a425e080001	en	Fraud User
 607818be-4978-41f4-bf63-fa8d2de51174	en	Can view and use the app
 607818be-4978-41f4-bf63-fa8d2de51175	de	Can configure the app
 607818be-4978-41f4-bf63-fa8d2de51175	en	Can configure the app
+607818be-4978-41f4-bf63-fa8d2de51176	de	Can access the app
+607818be-4978-41f4-bf63-fa8d2de51176	en	Can access the app
 \.
 
 

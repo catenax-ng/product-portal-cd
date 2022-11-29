@@ -512,6 +512,7 @@ COPY portal.notification_type (id, label) FROM stdin;
 12	TECHNICAL_USER_CREATION
 13	SERVICE_REQUEST
 14	SERVICE_ACTIVATION
+15	APP_ROLE_ADDED
 \.
 
 
@@ -568,6 +569,16 @@ COPY portal.offer_types (id, label) FROM stdin;
 1	APP
 2	CORE_COMPONENT
 3	SERVICE
+\.
+
+
+--
+-- Data for Name: service_types; Type: TABLE DATA; Schema: portal; Owner: portal
+--
+
+COPY portal.service_types (id, label) FROM stdin;
+1	DATASPACE_SERVICE
+2	CONSULTANCE_SERVICE
 \.
 
 
