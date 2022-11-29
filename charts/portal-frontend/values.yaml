@@ -12,7 +12,7 @@ ingress:
 portal:
   name: "portal"
   image:
-    name: "ghcr.io/catenax-ng/product-portal-frontend"
+    name: "ghcr.io/catenax-ng/tx-portal-frontend"
     portaltag: 0.8.0
 
 assets:
