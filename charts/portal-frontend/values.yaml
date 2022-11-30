@@ -13,7 +13,7 @@ portal:
   name: "portal"
   image:
     name: "ghcr.io/catenax-ng/tx-portal-frontend"
-    portaltag: 0.8.0
+    portaltag: 0.9.0
 
 assets:
   name: "assets"
@@ -25,7 +25,7 @@ registration:
   name: "registration"
   image:
     name: "ghcr.io/catenax-ng/tx-portal-frontend-registration"
-    registrationtag: 0.8.0
+    registrationtag: 0.9.0
 
 demonstrator:
   enabled: false

@@ -33,7 +33,7 @@ ingress:
 
 portal:
   image:
-    portaltag: 0.8.0
+    portaltag: 0.9.0
 
 assets:
   image:
@@ -41,7 +41,7 @@ assets:
 
 registration:
   image:
-    registrationtag: 0.8.0
+    registrationtag: 0.9.0
 
 demonstrator:
   enabled: false
