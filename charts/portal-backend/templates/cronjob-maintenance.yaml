@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: {{ .Values.portalmaintenance.name }}
 spec:
-  schedule: "* * * * *"
+  schedule: "0 0 * * *"
   jobTemplate:
     spec:
       template:
