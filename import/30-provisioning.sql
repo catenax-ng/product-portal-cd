@@ -21,3 +21,4 @@ SET row_security = off;
 --
 
 CREATE SCHEMA provisioning;
+ALTER SCHEMA provisioning OWNER TO provisioning;

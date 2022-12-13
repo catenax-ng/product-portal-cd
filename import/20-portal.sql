@@ -21,3 +21,4 @@ SET row_security = off;
 --
 
 CREATE SCHEMA portal;
+ALTER SCHEMA portal OWNER TO portal;
