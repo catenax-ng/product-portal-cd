@@ -44,7 +44,7 @@ assets:
 
 registration:
   image:
-    registrationtag: dev_c3eb6b7f5f28ec9617964ae635818dfbe3c3cfd9
+    registrationtag: dev_a3d62b6e395f3bf7883fdbd536eecce2e26b5403
 
 demonstrator:
   enabled: true
