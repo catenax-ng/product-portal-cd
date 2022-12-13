@@ -63,7 +63,7 @@ postgresql:
           secretName: secret-postgres-init-db-user
     initContainers:
       - name: initdb
-        image: ghcr.io/catenax-ng/product-portal-cd_initdb:v0.9.0
+        image: ghcr.io/catenax-ng/product-portal-cd_initdb:v0.10.0
         imagePullPolicy: Always
         command:
           - sh
@@ -82,49 +82,49 @@ postgresql:
 
 registration:
   image:
-    registrationtag: v0.9.0
+    registrationtag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/registration#appsettings.json>"
 
 administration:
   image:
-    administrationtag: v0.9.0
+    administrationtag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/administration#appsettings.json>"
 
 provisioning:
   image:
-    provisioningtag: v0.9.0
+    provisioningtag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/provisioning#appsettings.json>"
 
 appmarketplace:
   image:
-    appmarketplacetag: v0.9.0
+    appmarketplacetag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/appmarketplace#appsettings.json>"
 
 portalmigrations:
   image:
-    portalmigrationstag: v0.9.0
+    portalmigrationstag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/portal-migrations#appsettings.json>"
 
 portalmaintenance:
   image:
-    portalmaintenancetag: v0.9.0
+    portalmaintenancetag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/portal-maintenance#appsettings.json>"
 
 notification:
   image:
-    notificationtag: v0.9.0
+    notificationtag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/notification#appsettings.json>"
 
 services:
   image:
-    servicestag: v0.9.0
+    servicestag: v0.10.0
   secret:
     appsettings: "<path:portal/data/beta/services#appsettings.json>"
 

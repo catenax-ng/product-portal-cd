@@ -28,7 +28,7 @@ registration:
   name: registration-service
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_registration-service
-    registrationtag: v0.9.0
+    registrationtag: v0.10.0
   secret:
     name: secret-registration
     appsettings: ""
@@ -37,7 +37,7 @@ administration:
   name: administration-service
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_administration-service
-    administrationtag: v0.9.0
+    administrationtag: v0.10.0
   secret:
     name: secret-administration
     appsettings: ""
@@ -46,7 +46,7 @@ provisioning:
   name: provisioning-service
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_provisioning-service
-    provisioningtag: v0.9.0
+    provisioningtag: v0.10.0
   secret:
     name: secret-provisioning
     appsettings: ""
@@ -55,7 +55,7 @@ appmarketplace:
   name: marketplace-app-service
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_marketplace-app-service
-    appmarketplacetag: v0.9.0
+    appmarketplacetag: v0.10.0
   secret:
     name: secret-appmarketplace
     appsettings: ""
@@ -64,7 +64,7 @@ portalmigrations:
   name: portal-migrations
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_portal-migrations
-    portalmigrationstag: v0.9.0
+    portalmigrationstag: v0.10.0
   secret:
     name: secret-portal-migrations
     appsettings: ""
@@ -73,7 +73,7 @@ portalmaintenance:
   name: portal-maintenance
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_maintenance-service
-    portalmaintenancetag: v0.9.0
+    portalmaintenancetag: v0.10.0
   secret:
     name: secret-portal-maintenance
     appsettings: ""
@@ -82,7 +82,7 @@ notification:
   name: notification-service
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_notification-service
-    notificationtag: v0.9.0
+    notificationtag: v0.10.0
   secret:
     name: secret-notification
     appsettings: ""
@@ -91,7 +91,7 @@ services:
   name: services-service
   image:
     name: ghcr.io/catenax-ng/tx-portal-backend_services-service
-    servicestag: v0.9.0
+    servicestag: v0.10.0
   secret:
     name: secret-services
     appsettings: ""
