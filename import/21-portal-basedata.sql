@@ -513,6 +513,11 @@ COPY portal.notification_type (id, label) FROM stdin;
 13	SERVICE_REQUEST
 14	SERVICE_ACTIVATION
 15	APP_ROLE_ADDED
+16	APP_RELEASE_APPROVAL
+17	SERVICE_RELEASE_REQUEST
+18	SERVICE_RELEASE_APPROVAL
+19	APP_RELEASE_REJECTION
+20	SERVICE_RELEASE_REJECTION
 \.
 
 
@@ -535,6 +540,12 @@ COPY portal.notification_type_assigned_topic (notification_type_id, notification
 12	1
 13	2
 14	3
+16	3
+15	3
+17	3
+18	3
+19	3
+20	3
 \.
 
 
