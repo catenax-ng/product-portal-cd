@@ -44,7 +44,7 @@ assets:
 
 registration:
   image: 
-    registrationtag: 0.9.0
+    registrationtag: 0.10.0
 
 demonstrator:
   enabled: true
