@@ -1,11 +1,11 @@
 # Catena-X Portal Helm Charts
 
-Helm charts to deploy Portal frontend and backend using ArgoCD.
+The portal-cd has been moved and this repository is now **deprecated**.
+You can find the code at the new location:
 
-DEV
-* https://argo.dev.demo.catena-x.net/applications/portal
-* https://argo.dev.demo.catena-x.net/applications/portal-backend
+https://github.com/catenax-ng/tx-portal-cd
 
-INT
-* https://argo.int.demo.catena-x.net/applications/portal
-* https://argo.int.demo.catena-x.net/applications/portal-backend
+If you want to check out previous versions of the code just open the according release version.
+The last state in main is the following:
+
+https://github.com/catenax-ng/product-portal-backend/releases/tag/move-to-tx-portal-cd
